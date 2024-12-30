@@ -1,0 +1,22 @@
+﻿@model TheWitcher.Data.Models.Postac
+
+<h1>Usuń Postać</h1>
+
+<div>
+    <h4>Postać</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Imię</dt>
+        <dd class="col-sm-10">@Model.Imie</dd>
+        <dt class="col-sm-2">Poziom</dt>
+        <dd class="col-sm-10">@Model.Poziom</dd>
+        <dt class="col-sm-2">Umiejętności</dt>
+        <dd class="col-sm-10">@Model.Umiejetnosci</dd>
+    </dl>
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Usuń</button>
+    <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+</form>

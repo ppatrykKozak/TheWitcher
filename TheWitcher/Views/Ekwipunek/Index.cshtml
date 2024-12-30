@@ -1,0 +1,40 @@
+﻿@model List<TheWitcher.Data.Models.Ekwipunek>
+
+@{
+    ViewData["Title"] = "Ekwipunek Postaci";
+    var postacId = ViewBag.PostacId;
+    var postacName = ViewBag.PostacName;
+}
+
+<h1>Ekwipunek Postaci: @postacName</h1>
+
+<p>
+    <a asp-action="Create" asp-route-postacId="@postacId" class="btn btn-primary">Dodaj Ekwipunek</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Typ</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nazwa</td>
+                <td>@item.Typ</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" asp-route-postacId="@postacId">Edytuj</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id" asp-route-postacId="@postacId">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Index" asp-controller="Postac" class="btn btn-secondary">Powrót do Postaci</a>
+</p>

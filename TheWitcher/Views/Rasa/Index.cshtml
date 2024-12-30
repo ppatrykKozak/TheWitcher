@@ -1,0 +1,30 @@
+﻿@model List<TheWitcher.Data.Models.Rasa>
+
+<h1>Lista Ras</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Opis</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rasa in Model)
+        {
+            <tr>
+                <td>@rasa.Nazwa</td>
+                <td>@rasa.Opis</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@rasa.Id" class="btn btn-warning">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@rasa.Id" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj Nową Rasę</a>
+</p>

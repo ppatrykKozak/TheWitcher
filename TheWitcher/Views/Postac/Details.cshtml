@@ -1,0 +1,26 @@
+﻿@model TheWitcher.Data.Models.Postac
+
+<h1>Szczegóły Postaci: @Model.Imie</h1>
+
+<p>
+    <strong>Poziom:</strong> @Model.Poziom
+</p>
+<p>
+    <strong>Umiejętności:</strong> @Model.Umiejetnosci
+</p>
+<p>
+       <strong>Rasa:</strong> @ViewBag.RasaNazwa
+</p>
+<p>
+    <strong>Ekwipunek:</strong>
+</p>
+
+@await Html.PartialAsync("PartialViewEkwipunek", Model.Ekwipunek)
+
+<p>
+   
+    <a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
+</p>
+<p>
+    <a asp-action="Create" asp-controller="Ekwipunek" asp-route-postacId="@Model.Id" class="btn btn-primary">Dodaj Ekwipunek</a>
+</p>

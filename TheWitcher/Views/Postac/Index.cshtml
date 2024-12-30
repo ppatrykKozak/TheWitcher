@@ -1,0 +1,39 @@
+﻿@model List<TheWitcher.Data.Models.Postac>
+@{
+    var rasy = ViewBag.Rasy as Dictionary<int, string>;
+}
+
+<h1>Lista Postaci</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Poziom</th>
+            <th>Umiejętności</th>
+            <th>Rasa</th>
+            <th>Akcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var postac in Model)
+        {
+            var rasaNazwa = rasy.ContainsKey(postac.RasaId) ? rasy[postac.RasaId] : "Nieznana";
+            <tr>
+                <td>@postac.Imie</td>
+                <td>@postac.Poziom</td>
+                <td>@postac.Umiejetnosci</td>
+                <td>@rasaNazwa</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@postac.Id" class="btn btn-info">Szczegóły</a>
+                    <a asp-action="Edit" asp-route-id="@postac.Id" class="btn btn-warning">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@postac.Id" class="btn btn-danger">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Dodaj Nową Postać</a>
+</p>

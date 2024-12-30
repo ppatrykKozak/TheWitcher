@@ -1,0 +1,28 @@
+﻿@model TheWitcher.Data.Models.Ekwipunek
+
+@{
+    ViewData["Title"] = "Edytuj Ekwipunek";
+    var postacId = ViewBag.PostacId;
+}
+
+<h1>Edytuj Ekwipunek</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" name="postacId" value="@postacId" />
+    <div class="form-group">
+        <label for="Nazwa">Nazwa</label>
+        <input asp-for="Nazwa" class="form-control" />
+        <span asp-validation-for="Nazwa" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Typ">Typ</label>
+        <input asp-for="Typ" class="form-control" />
+        <span asp-validation-for="Typ" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Zapisz</button>
+</form>
+
+<p>
+    <a asp-action="Index" asp-route-postacId="@ViewBag.PostacId" class="btn btn-secondary">Powrót do ekwipunku</a>
+</p>
