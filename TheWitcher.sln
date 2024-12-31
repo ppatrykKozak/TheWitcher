@@ -5,7 +5,9 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheWitcher", "TheWitcher\TheWitcher.csproj", "{AD0B4730-DD90-40A9-B9B7-C6754C8CBB91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWitcher.Data", "TheWitcher.Data\TheWitcher.Data.csproj", "{28086D9C-44C7-4107-A4DD-F0C38EDAADAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheWitcher.Data", "TheWitcher.Data\TheWitcher.Data.csproj", "{28086D9C-44C7-4107-A4DD-F0C38EDAADAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheWitcher.Tests", "TheWitcher.Tests\TheWitcher.Tests.csproj", "{FE4C078B-582C-46E6-9860-5281CF090EED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{28086D9C-44C7-4107-A4DD-F0C38EDAADAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28086D9C-44C7-4107-A4DD-F0C38EDAADAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28086D9C-44C7-4107-A4DD-F0C38EDAADAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE4C078B-582C-46E6-9860-5281CF090EED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE4C078B-582C-46E6-9860-5281CF090EED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE4C078B-582C-46E6-9860-5281CF090EED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE4C078B-582C-46E6-9860-5281CF090EED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
