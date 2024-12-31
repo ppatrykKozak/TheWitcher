@@ -9,16 +9,15 @@
     <strong>Umiejętności:</strong> @Model.Umiejetnosci
 </p>
 <p>
-       <strong>Rasa:</strong> @ViewBag.RasaNazwa
+    <strong>Rasa:</strong> @ViewBag.RasaNazwa
 </p>
 <p>
     <strong>Ekwipunek:</strong>
 </p>
 
-@await Html.PartialAsync("PartialViewEkwipunek", Model.Ekwipunek)
+@await Html.PartialAsync("_PartialViewEkwipunek", Model.Ekwipunek)  <!-- Renderowanie ekwipunku -->
 
 <p>
-   
     <a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
 </p>
 <p>

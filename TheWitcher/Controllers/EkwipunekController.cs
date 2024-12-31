@@ -27,22 +27,27 @@ namespace TheWitcher.Controllers
 
             ViewBag.PostacId = postacId;
             ViewBag.PostacName = postac.Imie;
-            return View(postac.Ekwipunek);
+            return View(postac.Ekwipunek); // Zwraca ekwipunek do widoku
         }
 
+        // Create - GET
         public IActionResult Create(int postacId)
         {
             ViewBag.PostacId = postacId;
             return View();
         }
 
+        // Create - POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(int postacId, string nazwa, string typ)
         {
+
+           
+
             var postac = await _context.Postacie.Include(p => p.Ekwipunek)
                                                 .FirstOrDefaultAsync(p => p.Id == postacId);
-
+            
             if (postac == null)
             {
                 return NotFound("Nie znaleziono postaci.");
@@ -58,7 +63,7 @@ namespace TheWitcher.Controllers
             _context.Ekwipunki.Add(ekwipunek);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index", new { postacId });
+            return RedirectToAction("Details", "Postac", new { id = postacId });  // Po dodaniu ekwipunku wracamy do szczegółów postaci
         }
 
         public async Task<IActionResult> Edit(int id, int postacId)
@@ -78,11 +83,12 @@ namespace TheWitcher.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Ekwipunek ekwipunek)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Ekwipunki.Update(ekwipunek);
                 await _context.SaveChangesAsync();
-                return RedirectToAction("Index", new { postacId = ekwipunek.PostacId });
+                return RedirectToAction("Details", "Postac", new { id = ekwipunek.PostacId });
             }
 
             ViewBag.PostacId = ekwipunek.PostacId;
@@ -113,7 +119,7 @@ namespace TheWitcher.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToAction("Index", new { postacId });
+            return RedirectToAction("Details", "Postac", new { id = postacId });
         }
     }
 }

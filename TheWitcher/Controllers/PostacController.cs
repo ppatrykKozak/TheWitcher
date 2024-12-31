@@ -42,6 +42,8 @@ namespace TheWitcher.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Postac postac)
         {
+
+
             if (ModelState.IsValid)
             {
                 _context.Postacie.Add(postac);
@@ -96,6 +98,8 @@ namespace TheWitcher.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Postac postac)
         {
+          
+
             if (ModelState.IsValid)
             {
                 _context.Postacie.Update(postac);
