@@ -15,6 +15,7 @@ namespace TheWitcher.Controllers
             _context = context;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index(int postacId)
         {
             var postac = await _context.Postacie.Include(p => p.Ekwipunek)
@@ -31,6 +32,9 @@ namespace TheWitcher.Controllers
         }
 
         // Create - GET
+
+
+        [HttpGet]
         public IActionResult Create(int postacId)
         {
             ViewBag.PostacId = postacId;
@@ -66,6 +70,11 @@ namespace TheWitcher.Controllers
             return RedirectToAction("Details", "Postac", new { id = postacId });  // Po dodaniu ekwipunku wracamy do szczegółów postaci
         }
 
+
+        //Edit Get
+
+
+        [HttpGet]
         public async Task<IActionResult> Edit(int id, int postacId)
         {
             var ekwipunek = await _context.Ekwipunki.FirstOrDefaultAsync(e => e.Id == id && e.PostacId == postacId);
@@ -78,6 +87,9 @@ namespace TheWitcher.Controllers
             ViewBag.PostacId = postacId;
             return View(ekwipunek);
         }
+
+        //Edit Post
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -95,6 +107,8 @@ namespace TheWitcher.Controllers
             return View(ekwipunek);
         }
 
+        //Delete
+
         public async Task<IActionResult> Delete(int id, int postacId)
         {
             var ekwipunek = await _context.Ekwipunki.FirstOrDefaultAsync(e => e.Id == id && e.PostacId == postacId);
@@ -106,6 +120,8 @@ namespace TheWitcher.Controllers
 
             return View(ekwipunek);
         }
+
+        //Delete Post Confirmed
 
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -15,7 +15,7 @@ namespace TheWitcher.Data.Data
         {
         }
 
-        // DbSety dla Twoich modeli
+        // DbSety dla  modeli
         public DbSet<Postac> Postacie { get; set; }
         public DbSet<Ekwipunek> Ekwipunki { get; set; }
         public DbSet<Rasa> Rasy { get; set; }

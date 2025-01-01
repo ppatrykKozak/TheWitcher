@@ -26,6 +26,7 @@ namespace TheWitcher.Tests
             _context = new ApplicationDbContext(options);
             _controller = new PostacController(_context);
 
+            //Usuwamy z bazy
             _context.Postacie.RemoveRange(_context.Postacie);
             _context.SaveChanges();
         }
@@ -95,13 +96,13 @@ namespace TheWitcher.Tests
             // Assert
             Assert.IsInstanceOf<RedirectToActionResult>(result);
             Assert.AreEqual("Index", (result as RedirectToActionResult)?.ActionName);
-            Assert.IsNull(await _context.Postacie.FindAsync(1)); // Ensure the postac is removed
+            Assert.IsNull(await _context.Postacie.FindAsync(1)); // Ensure  postac jest usuniety
         }
 
         [TearDown]
         public void TearDown()
         {
-            // Cleanup the resources used in the test
+            //Zwalniamy zasoby 
             _controller.Dispose();
             _context.Dispose();
         }

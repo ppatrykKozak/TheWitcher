@@ -16,12 +16,15 @@ public class RequestLoggingMiddleware
     public async Task InvokeAsync(HttpContext context)
     {
         // Logowanie szczegółów żądania
+
         _logger.LogInformation($"Request: {context.Request.Method} {context.Request.Path}");
 
         // Wywołanie kolejnego middleware w pipeline
+
         await _next(context);
 
         // Logowanie szczegółów odpowiedzi
+
         _logger.LogInformation($"Response: {context.Response.StatusCode}");
     }
 }

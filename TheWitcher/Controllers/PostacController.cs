@@ -12,12 +12,15 @@ namespace TheWitcher.Controllers
         private readonly ApplicationDbContext _context;
 
         // Konstruktor kontrolera z wstrzyknięciem ApplicationDbContext
+
         public PostacController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // Akcja Index - Pobiera wszystkie postacie z bazy
+
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var postacie = await _context.Postacie.ToListAsync();
@@ -26,6 +29,8 @@ namespace TheWitcher.Controllers
         }
 
         // Akcja Create - GET
+
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
             ViewBag.Rasy = await _context.Rasy.Select(r => new SelectListItem
@@ -38,6 +43,7 @@ namespace TheWitcher.Controllers
         }
 
         // Akcja Create - POST
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Postac postac)
@@ -61,6 +67,8 @@ namespace TheWitcher.Controllers
         }
 
         // Akcja Details - Pobiera szczegóły postaci z bazy
+
+        [HttpGet]
         public async Task<IActionResult> Details(int id)
         {
             var postac = await _context.Postacie.Include(p => p.Ekwipunek).FirstOrDefaultAsync(p => p.Id == id);
@@ -76,6 +84,9 @@ namespace TheWitcher.Controllers
         }
 
         // Akcja Edit - GET
+
+        [HttpGet]
+        
         public async Task<IActionResult> Edit(int id)
         {
             var postac = await _context.Postacie.FirstOrDefaultAsync(p => p.Id == id);
@@ -117,6 +128,8 @@ namespace TheWitcher.Controllers
         }
 
         // Akcja Delete - GET
+
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var postac = await _context.Postacie.FirstOrDefaultAsync(p => p.Id == id);

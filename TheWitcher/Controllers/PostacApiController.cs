@@ -18,6 +18,8 @@ namespace TheWitcher.Controllers
         }
 
         // GET: api/PostacApi
+
+
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -28,7 +30,9 @@ namespace TheWitcher.Controllers
             return Ok(postacie);
         }
 
+
         // GET: api/PostacApi/{id}
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -40,7 +44,11 @@ namespace TheWitcher.Controllers
 
             return Ok(postac);
         }
+
+
         // POST: api/PostacApi
+
+
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] Postac postac)
         {
@@ -55,6 +63,8 @@ namespace TheWitcher.Controllers
         }
 
         // PUT: api/PostacApi/{id}
+
+
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] Postac updatedPostac)
         {
@@ -76,6 +86,8 @@ namespace TheWitcher.Controllers
         }
 
         // DELETE: api/PostacApi/{id}
+
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

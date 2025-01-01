@@ -16,6 +16,8 @@ namespace TheWitcher.Controllers
         }
 
         // GET: Rasa
+
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var rasy = await _context.Rasy.ToListAsync();
@@ -23,12 +25,15 @@ namespace TheWitcher.Controllers
         }
 
         // GET: Rasa/Create
+
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Rasa/Create
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Rasa rasa)
@@ -43,6 +48,8 @@ namespace TheWitcher.Controllers
         }
 
         // GET: Rasa/Edit/{id}
+
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var rasa = await _context.Rasy.FirstOrDefaultAsync(r => r.Id == id);
@@ -54,6 +61,8 @@ namespace TheWitcher.Controllers
         }
 
         // POST: Rasa/Edit/{id}
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Rasa rasa)
@@ -68,6 +77,8 @@ namespace TheWitcher.Controllers
         }
 
         // GET: Rasa/Delete/{id}
+
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var rasa = await _context.Rasy.FirstOrDefaultAsync(r => r.Id == id);
@@ -79,6 +90,7 @@ namespace TheWitcher.Controllers
         }
 
         // POST: Rasa/Delete/{id}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
